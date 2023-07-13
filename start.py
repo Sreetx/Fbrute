@@ -197,7 +197,6 @@ if wordlist:
         for p in tqdm(crack, total=l, unit='w'):
             try:
                 login(target, p, prxy)
-                so = br.submit().geturl()
             except KeyboardInterrupt: print(merah+'\n [!] Membatalkan....'+putih);time.sleep(1.5);sys.exit()
             except urllib.error.URLError: print(merah+'\n [!] Gagal koneksi, harap periksa koneksi internet anda'+putih);sys.exit()
             else:
