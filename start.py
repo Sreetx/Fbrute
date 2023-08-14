@@ -135,7 +135,7 @@ def login(target, p, prxy):
         return 1
     
 def bantuan():
-    banner(target, wordlist, prxy, masal, emailo)
+    banner(target, wordlist, prxy, masal, emailo, port)
     print('''python '''+sys.argv[0]+putih+''' [OPTIONS/COMMAND/PERINTAH]
 [Perintah]:
     --u --user     Gunakan ini untuk memasukkan email/nomor telepon target
