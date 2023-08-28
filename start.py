@@ -7,19 +7,17 @@ try:
     print('\n [~] Mengimport module, harap tunggu....')
     import socket, sys, time, urllib, optparse, http
     from http import cookiejar
-    try:
-        from tqdm import tqdm
-    except: print('\n [!] Anda tidak memiliki module tqdm. Module akan diinstall dalam 3 detik....');time.sleep(3);os.system('apt-get install pip');os.system('pip install tqdm');print(' [+] Selesai. Harap jalankan kembali tools ini');sys.exit()
-    try:
-        import mechanize
-    except: print('\n [!] Anda tidak memiliki module mechanize. Module akan diinstall dalam 3 detik....');time.sleep(3);os.system('apt-get install pip');os.system('pip install mechanize');print(' [+] Selesai. Harap jalankan kembali tools ini');sys.exit()
-    print(' [+] Selesai')
-    try:
-        import requests
-    except: print('\n [!] Anda tidak memiliki module requests. Module akan diinstall dalam 3 detik....');time.sleep(3);os.system('apt-get install pip');os.system('pip install requests');print(' [+] Selesai. Harap jalankan kembali tools ini');sys.exit()
+    from tqdm import tqdm
+    import mechanize
+    import requests
     print(' [+] Selesai')
 except (KeyboardInterrupt, EOFError): print(' [!] Gagal mengimport, proses dibatalkan pengguna');sys.exit()
-
+except ImportError:
+    print(merah+' [!] Module yang dibutuhkan tidak lengkap. Menginstall module terlebih dahulu...'+putih);time.sleep(1)
+    try:
+        os.system('apt install pip')
+        os.system('pip install requests tqdm mechanize')
+    except: print(' [!] Periksa koneksi internet anda');sys.exit()
 if sys.platform in ["linux", "linux2"]:
     orange = "\033[93m"
     putih = "\033[39m"
