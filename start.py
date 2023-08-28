@@ -1,7 +1,7 @@
 
 """DILARANG MEMPERJUAL BELIKAN SCRIPT INI TANPA IZIN DARI KAMI
     Copyright (C) Sreetx Allright Reserved"""
-import os
+import os, sys
 os.system('cls||clear')
 
 if sys.platform in ["linux", "linux2"]:
