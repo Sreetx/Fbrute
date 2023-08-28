@@ -1,7 +1,7 @@
 
 """DILARANG MEMPERJUAL BELIKAN SCRIPT INI TANPA IZIN DARI KAMI
     Copyright (C) Sreetx Allright Reserved"""
-import os, sys
+import os, sys, time
 os.system('cls||clear')
 
 if sys.platform in ["linux", "linux2"]:
@@ -19,7 +19,7 @@ else:
 
 try:
     print('\n [~] Mengimport module, harap tunggu....')
-    import socket, sys, time, urllib, optparse, http
+    import socket, sys, urllib, optparse, http
     from http import cookiejar
     from tqdm import tqdm
     import mechanize
