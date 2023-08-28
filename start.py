@@ -3,6 +3,20 @@
     Copyright (C) Sreetx Allright Reserved"""
 import os
 os.system('cls||clear')
+
+if sys.platform in ["linux", "linux2"]:
+    orange = "\033[93m"
+    putih = "\033[39m"
+    merah = "\033[91m"
+    hijau = "\033[92m"
+    biru = "\033[94m"
+else:
+    orange = ""
+    putih = ""
+    merah = ""
+    hijau = ""
+    biru = ""
+
 try:
     print('\n [~] Mengimport module, harap tunggu....')
     import socket, sys, time, urllib, optparse, http
@@ -18,18 +32,7 @@ except ImportError:
         os.system('apt install pip')
         os.system('pip install requests tqdm mechanize')
     except: print(' [!] Periksa koneksi internet anda');sys.exit()
-if sys.platform in ["linux", "linux2"]:
-    orange = "\033[93m"
-    putih = "\033[39m"
-    merah = "\033[91m"
-    hijau = "\033[92m"
-    biru = "\033[94m"
-else:
-    orange = ""
-    putih = ""
-    merah = ""
-    hijau = ""
-    biru = ""
+
 def banner(target, wordlist, prxy, masal, emailo, port):
     print(orange+'''
 <>=================================================<>
